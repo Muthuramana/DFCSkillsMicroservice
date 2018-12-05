@@ -6,7 +6,7 @@ FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR /src
 COPY DFC.Microservices.Skills.sln ./
 COPY DFC.Microservices.Skills/DFC.Microservices.Skills.csproj DFC.Microservices.Skills/
-RUN dotnet restore -nowarn:msb3202,nu1503
+RUN dotnet restore DFC.Microservices.Skills/DFC.Microservices.Skills.csproj -nowarn:msb3202,nu1503
 COPY . .
 WORKDIR /src/DFC.Microservices.Skills
 RUN dotnet build -c Release -o /app
